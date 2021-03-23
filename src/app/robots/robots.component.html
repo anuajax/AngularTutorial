@@ -1,0 +1,17 @@
+<!-- <h2>{{robo.name | uppercase}} Details</h2>
+<div><span>id: </span>{{robo.id}}</div>
+<div><span>name: </span>{{robo.name}}</div>
+
+<label for="robo name">Robo name:</label>
+<input type="text" id="name" placeholder="name" [(ngModel)] = "robo.name"> -->
+
+<h2>MY ROBOTS LIST: </h2>
+<ul class="robots">
+  <li *ngFor = "let robo of robos" > <!--(click) = "onSelect(robo)" [class.selected]="robo === selectedRobo"-->
+    <a routerLink="/details/{{robo.id}}">
+    <span class="badge">{{robo.id}}</span> {{robo.name}}
+    </a>
+  </li>
+</ul>
+<!-- <app-robo-details [robo]="selectedRobo"></app-robo-details> -->
+
