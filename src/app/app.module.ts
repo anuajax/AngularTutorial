@@ -7,6 +7,10 @@ import { RobotsComponent } from './robots/robots.component';
 import { RoboDetailsComponent } from './robo-details/robo-details.component';
 import { MessagesComponent } from './messages/messages.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { HttpClientModule } from '@angular/common/http';
+import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
+import { InMemoryDataService } from './in-memory-data.service';
+import { RoboSearchComponent } from './robo-search/robo-search.component';
 
 @NgModule({
   declarations: [
@@ -14,12 +18,15 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     RobotsComponent,
     RoboDetailsComponent,
     MessagesComponent,
-    DashboardComponent
+    DashboardComponent,
+    RoboSearchComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule,
+    HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService, {dataEncapsulation: false})
   ],
   providers: [],
   bootstrap: [AppComponent]

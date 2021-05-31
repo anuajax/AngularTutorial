@@ -11,7 +11,7 @@ import {RoboService} from '../robo.service';
 export class RoboDetailsComponent implements OnInit {
 
   // @Input() robo?: Robo;
-  robo?: Robo;
+  robo!: Robo;
   constructor(private route: ActivatedRoute, private location: Location, private roboService: RoboService) { }
 
   getRoboDetails(): void {
@@ -24,6 +24,8 @@ export class RoboDetailsComponent implements OnInit {
   ngOnInit(): void {
     this.getRoboDetails()
   }
-
+  saveDetails(): void {
+    this.roboService.updateAndSaveRoboDetails(this.robo).subscribe(() => this.goBack());
+  }
 
 }
